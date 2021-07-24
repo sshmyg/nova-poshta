@@ -56,7 +56,7 @@ export class NovaPoshta {
       );
     const recipientCounterparties = await this.getCounterparties('Recipient');
 
-    // Find contact person among existing (this step could be skip and just create new one)
+    // Find contact person among existing (this step could be skipped and just create new one)
     const recipientCounterpartiesContactPersons =
       await this.getCounterpartyContactPersons(
         recipientCounterparties.data[0].Ref
