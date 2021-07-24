@@ -1,0 +1,15 @@
+{
+  "name": "nova-poshta",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "author": "Serhey Shmyg <serhey.shmyg@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "npx ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "16.4.0",
+    "axios": "0.21.1",
+    "typescript": "4.3.5"
+  }
+}
