@@ -65,9 +65,9 @@ export class NovaPoshta {
     // Or create new contact person
     const newContactPerson = await this.createContactPerson({
       CounterpartyRef: recipientCounterparties.data[0].Ref,
-      FirstName: 'Ольга',
-      LastName: 'Бондаренко',
-      Phone: '380684645879',
+      FirstName: 'Test',
+      LastName: 'Test 2',
+      Phone: '380971234567',
     });
 
     const data = {
