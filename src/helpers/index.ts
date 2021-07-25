@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { Request, Response } from '../types';
+import { RequestProps, ResponseProps } from '../types';
 
 const axiosInstance = axios.create({
   baseURL: 'https://api.novaposhta.ua/v2.0/json/',
@@ -11,10 +11,10 @@ export const makeRequest = async <
   RequestData = unknown
 >(
   apiKey: string,
-  req: Request<RequestData>
-): Promise<Response<ResponseData>> => {
+  req: RequestProps<RequestData>
+): Promise<ResponseProps<ResponseData>> => {
   try {
-    const { data } = await axiosInstance.post<Response<ResponseData>>('', {
+    const { data } = await axiosInstance.post<ResponseProps<ResponseData>>('', {
       apiKey,
       ...req,
     });

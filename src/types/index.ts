@@ -1,9 +1,13 @@
-export type Request<RequestData = unknown> = RequestData & {
+export type RequestProps<RequestData = unknown> = RequestData & {
   modelName: string;
   calledMethod: string;
 };
 
-export interface Response<ResponseData> {
+export interface MethodPropertiesWrapper<Data = unknown> {
+  methodProperties: Data;
+}
+
+export interface ResponseProps<ResponseData> {
   success: boolean;
   data: ResponseData;
   errors: any[];
@@ -77,4 +81,49 @@ export interface NewContactPerson {
     warnings: any[];
     info: any[];
   };
+}
+
+type PayerType = 'Sender' | 'Recipient';
+
+interface BackwardDeliveryProps {
+  PayerType: PayerType;
+  CargoType: 'Documents' | 'Money' | 'CreditDocuments';
+  RedeliveryString: string;
+  Services?: {
+    Attorney: boolean;
+    WaybillNewPostWithStamp: boolean;
+    UserActions: 'UserCallSender';
+  };
+}
+
+export interface CreateTtnRequest {
+  PayerType: PayerType;
+  PaymentMethod: 'Cash';
+  DateTime: string;
+  CargoType: 'Cargo' | 'Parcel';
+  VolumeGeneral: string;
+  Weight: string;
+  ServiceType: 'WarehouseWarehouse';
+  SeatsAmount: string;
+  Description: string;
+  Cost: string;
+  CitySender: string;
+  Sender: string;
+  SenderAddress: string;
+  ContactSender: string;
+  SendersPhone: string;
+  CityRecipient: string;
+  Recipient: string;
+  RecipientAddress: string;
+  ContactRecipient: string;
+  RecipientsPhone: string;
+  BackwardDeliveryData?: BackwardDeliveryProps[];
+}
+
+export interface CreateTtnResponse {
+  Ref: string;
+  CostOnSite: number;
+  EstimatedDeliveryDate: string;
+  IntDocNumber: string;
+  TypeDocument: 'InternetDocument';
 }
